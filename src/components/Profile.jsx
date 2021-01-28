@@ -1,10 +1,14 @@
 import React from 'react';
+import Posts from './Posts';
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
   }
     render () {
+
+      let postsElements = this.props.profilePage.posts.map( el => <Posts posts={el.posts} like={el.like} />)
+
         return (
           <div className='content'>
             <div>
@@ -13,20 +17,16 @@ class Profile extends React.Component {
             <div>
               ava + desc
             </div>
-            <div>
-              myposts
-              <div>
-                new post
-              </div>
-              <div>
-                <div>
-                  post1
-                </div>
-                <div>
-                  post 2
-                </div>
-              </div>
-            </div>
+            <div className='posts'>
+              <h3 className='posts-title'>
+                MY POSTS
+              </h3>
+              <textarea className='post-textarea'></textarea>
+              <button className='post-add__button-posts'>
+                Add Posts
+              </button>
+             {postsElements}
+           </div>
         </div>
         )
     }
