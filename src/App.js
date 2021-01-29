@@ -3,7 +3,7 @@ import './App.scss';
 import Header from './components/Header.jsx';
 import Navbar from './components/Navbar.jsx';
 import Profile from './components/Profile.jsx';
-import Messages from './components/Messages.jsx';
+import Messages from './components/MessagesPage.jsx';
 import News from './components/News';
 import Music from './components/Music';
 import Settings from './components/Settings';
@@ -17,7 +17,7 @@ function App(props) {
       <Navbar />
       <div className='content'>
       <Route path='/profile' render={()=> <Profile profilePage={props.state.profilePage}/>} />
-      <Route path='/messages' render={() => <Messages messages={props.state.messagesPage}/>} />
+      <Route path='/messages' render={() => <Messages messagesPage={props.state.messagesPage}/>} />
       <Route path='/news' component={News} />
       <Route path='/settings' component={Settings} />
       <Route path='/music' component={Music} />

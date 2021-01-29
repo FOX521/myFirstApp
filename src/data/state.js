@@ -21,38 +21,46 @@ let state = {
         dialogs: [
             {
                 id:1,
-                dialogs: 'Andrey'
+                dialog: 'Andrey'
             },
             {
                 id:2,
-                dialogs: 'Michael'
+                dialog: 'Michael'
             },
             {
                 id:3,
-                dialogs: 'Sacha'
+                dialog: 'Sacha'
             },
             {
                 id:4,
-                dialogs: 'John'
+                dialog: 'John'
+            },
+            {
+                id: 5,
+                dialog: 'Dmitryi'
             }
         ]
     },
     profilePage: {
         posts: [
             {   id:1,
-                post: 'I learned English!'
+                post: 'I learned English!',
+                like: 5,
             },
             {
                 id:2,
-                post: 'Wow! Congortulashion!'
+                post: 'Wow! Congortulashion!',
+                like: 4,
             },
             {
                 id:3,
-                post: 'You sucks'
+                post: 'You sucks',
+                like: 7
             },
             {
                 id:4,
-                post: 'What are you doing on saturday?'
+                post: 'What are you doing on saturday?',
+                like:1
             }
         ]
     },
