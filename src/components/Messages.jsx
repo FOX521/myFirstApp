@@ -1,49 +1,21 @@
 import React from 'react';
+import MessagesItem from './MessagesItem';
 
 class Messages extends React.Component {
     constructor(props) {
         super(props)
-    };
+    }
 
     render() {
-        return (
-            <section className='dialogs'>
-                <ul className='dialogs__list'>
-                    <li className='dialogs__list-item'>
-                        Dmitryi
-                    </li>
-                    <li className='dialogs__list-item'>
-                        Sacha
-                    </li>
-                    <li className='dialogs__list-item'>
-                        Andrey
-                    </li>
-                    <li className='dialogs__list-item'>
-                        Sveta
-                    </li>
-                    <li className='dialogs__list-item'>
-                        Viktor
-                    </li>
-                    <li className='dialogs__list-item'>
-                        Valera
-                    </li>
-                </ul>
-                <section className='dialogs__messages'>
-                    <ul className='dialogs__messages-list'>
-                        <li className="dialogs__message-item">
-
-                        </li>
-                        <li className="dialogs__message-item">
-                            
-                        </li>
-                        <li className="dialogs__message-item">
-
-                        </li>
-                    </ul>
-                </section>
+        let messagesItem =this.props.messages.map(el => <MessagesItem message={el.message} />);
+        return(
+            <section className='message-page__messages'>
+            <ul className='message-page__messages-list'>
+               {messagesItem}
+            </ul>
             </section>
         )
     }
 }
 
-export default Messages
+export default Messages;

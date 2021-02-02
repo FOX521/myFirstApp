@@ -7,15 +7,14 @@ class Profile extends React.Component {
   }
     render () {
 
-      let postsElements = this.props.profilePage.posts.map( el => <Posts posts={el.posts} like={el.like} />)
+      let postsElements = this.props.profilePage.posts.map( el => <Posts post={el.post} like={el.like} />)
 
         return (
           <div className='content'>
             <div>
-              <img src='#'></img>
+              <img src='https://russiantouramerica.com/wp-content/uploads/2018/08/Nju-Jork-foto-free-1000x700.jpg' width='100%' height='100%'></img>
             </div>
             <div>
-              ava + desc
             </div>
             <div className='posts'>
               <h3 className='posts-title'>
