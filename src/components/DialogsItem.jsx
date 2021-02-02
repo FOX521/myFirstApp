@@ -7,7 +7,7 @@ class DialogssItem extends React.Component {
 
     render() {
         return(
-            <li className="dialogs__list-item">
+            <li className="message-page__dialogs--list-item">
                 <p>
                     {this.props.dialog}
                 </p>

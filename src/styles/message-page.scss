@@ -1,0 +1,16 @@
+.message-page {
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-page__dialogs-list,
+.message-page__messages-list {
+    padding: 0;
+    margin: 0;
+    margin-left: 70px;
+    margin-right: 70px;
+    list-style: none;
+    color: azure;
+    font-family: 'Courier New', Courier, monospace;
+}
+
