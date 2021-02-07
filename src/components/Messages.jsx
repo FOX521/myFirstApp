@@ -7,7 +7,7 @@ class Messages extends React.Component {
     }
 
     render() {
-        let messagesItem =this.props.messages.map(el => <MessagesItem message={el.message} />);
+        let messagesItem =this.props.messages.map(el => <MessagesItem key={el.id + '1'.toString()} message={el.message} />);
         return(
             <section className='message-page__messages'>
             <ul className='message-page__messages-list'>

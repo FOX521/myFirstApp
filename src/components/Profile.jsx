@@ -7,7 +7,13 @@ class Profile extends React.Component {
   }
     render () {
 
-      let postsElements = this.props.profilePage.posts.map( el => <Posts post={el.post} like={el.like} />)
+      let postsElements = this.props.profilePage.posts.map( el => <Posts post={el.post} like={el.like} />);
+      let newPost = React.createRef();
+
+      let getPost = () => {
+        let text = newPost.current.value;
+        this.props.addPost(text);
+      };
 
         return (
           <div className='content'>
@@ -20,8 +26,8 @@ class Profile extends React.Component {
               <h3 className='posts-title'>
                 MY POSTS
               </h3>
-              <textarea className='post-textarea'></textarea>
-              <button className='post-add__button-posts'>
+              <textarea ref={newPost} className='post-textarea'></textarea>
+              <button onClick={getPost} className='post-add__button-posts'>
                 Add Posts
               </button>
              {postsElements}

@@ -1,4 +1,6 @@
-let state = {
+import renderTree from '../render'
+
+ let state = {
     messagesPage: {
         messages: [
             {
@@ -65,8 +67,28 @@ let state = {
         ]
     },
     newsPage: {},
-    musicPage: {},
-    settingPage: {}
+    musicPage: {}, 
+    settingPage: {},
+    // addPost: (message) => {
+    //     let newMessage = {
+    //         id: state.messagesPage.messages.length + 1,
+    //         dialog: message
+    //     }
+    //     state.messagesPage.messages.push(newMessage);
+    //     renderTree(state);
+    //     debugger
+    // }
 }
+
+export function addPost(message) {
+    let newMessage = {
+        id: state.profilePage.posts.length + 1,
+        post: message
+    }
+    state.profilePage.posts.push(newMessage);
+    debugger
+    renderTree(state);
+};
+
 
 export default state;
