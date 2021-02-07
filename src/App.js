@@ -8,6 +8,7 @@ import News from './components/News';
 import Music from './components/Music';
 import Settings from './components/Settings';
 import {BrowserRouter, Route} from 'react-router-dom';
+import {addPost}  from "./data/state";
 
 function App(props) {
   return (
@@ -16,7 +17,7 @@ function App(props) {
       <Header />
       <Navbar />
       <div className='content'>
-      <Route path='/profile' render={()=> <Profile profilePage={props.state.profilePage}/>} />
+      <Route path='/profile' render={()=> <Profile profilePage={props.state.profilePage} addPost={addPost}/>} />
       <Route path='/messages' render={() => <MessagesPage messagesPage={props.state.messagesPage}/>} />
       <Route path='/news' component={News} />
       <Route path='/settings' component={Settings} />

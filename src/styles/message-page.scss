@@ -4,13 +4,17 @@
 }
 
 .message-page__dialogs-list,
-.message-page__messages-list {
+.message-page__messages-list,
+.message-page__dialogs--link {
     padding: 0;
     margin: 0;
     margin-left: 70px;
     margin-right: 70px;
     list-style: none;
+    text-decoration: none;
     color: azure;
     font-family: 'Courier New', Courier, monospace;
 }
+
+
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import DialogssItem from './DialogsItem';
+import { NavLink, Route } from 'react-router-dom';
+import DialogsItem from './DialogsItem';
 
 class Dialogs extends React.Component {
     constructor(props) {
@@ -7,10 +8,11 @@ class Dialogs extends React.Component {
     }
 
     render() {
-        let dialogsItem = this.props.dialogs.map(el => <DialogssItem dialog={el.dialog} />);
+        let dialogList = this.props.dialogs.map(el => <NavLink className='message-page__dialogs--link' to={'/' + el.dialog}><DialogsItem dialog={el.dialog} id={el.id}/></NavLink>);
+                                                            
         return(
             <ul className='message-page__dialogs-list'>
-            {dialogsItem} 
+            {dialogList}
         </ul>
         )
     }

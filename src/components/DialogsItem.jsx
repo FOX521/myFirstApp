@@ -1,6 +1,6 @@
 import React from 'react';
 
-class DialogssItem extends React.Component {
+class DialogsItem extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -8,7 +8,7 @@ class DialogssItem extends React.Component {
     render() {
         return(
             <li className="message-page__dialogs--list-item">
-                <p>
+                <p className='message-page__dialogs--text'>
                     {this.props.dialog}
                 </p>
             </li>
@@ -16,4 +16,4 @@ class DialogssItem extends React.Component {
     }
 };
 
-export default DialogssItem;
+export default DialogsItem;
