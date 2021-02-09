@@ -86,7 +86,6 @@ export function addPost(message) {
         post: message
     }
     state.profilePage.posts.push(newMessage);
-    debugger
     renderTree(state);
 };
 
