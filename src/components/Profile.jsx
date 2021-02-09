@@ -7,12 +7,42 @@ class Profile extends React.Component {
   }
     render () {
 
+      let postTitleStyle = {
+        display: 'block',
+        width: '200px',
+        marginLeft: '20px',
+        fontFamily: 'sans-serif',
+        color: 'white',
+        fontSize: '30px'
+      }
+
+      let textareaStyle = {
+        width: '80%',
+        minHeight: '90px',
+        height: 'auto',
+        display: 'block',
+        marginLeft: '20px',
+      }
+
+      let bottomStylePost ={
+        display: 'block',
+        width: '90px',
+        height: '30px',
+        marginTop: '20px',
+        marginLeft: '20px',
+        borderRadius: '20px',
+        fontFamily: 'sans-serif',
+        fontSize: '15px',
+        backgroundColor: 'white'
+      }
+
       let postsElements = this.props.profilePage.posts.map( el => <Posts post={el.post} like={el.like} />);
       let newPost = React.createRef();
 
       let getPost = () => {
         let text = newPost.current.value;
         this.props.addPost(text);
+        newPost.current.value = '';
       };
 
         return (
@@ -23,11 +53,11 @@ class Profile extends React.Component {
             <div>
             </div>
             <div className='posts'>
-              <h3 className='posts-title'>
+              <h3 style={postTitleStyle} className='posts-title'>
                 MY POSTS
               </h3>
-              <textarea ref={newPost} className='post-textarea'></textarea>
-              <button onClick={getPost} className='post-add__button-posts'>
+              <textarea style={textareaStyle} ref={newPost} className='post-textarea'></textarea>
+              <button style={bottomStylePost} onClick={getPost} className='post-add__button-posts'>
                 Add Posts
               </button>
              {postsElements}
