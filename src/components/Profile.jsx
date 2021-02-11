@@ -48,7 +48,6 @@ class Profile extends React.Component {
       let changeInput = () => {
         let text = newPost.current.value;
         this.props.addUpdate(text)
-        console.log(text)
       }
 
         return (

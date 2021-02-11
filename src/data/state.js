@@ -1,6 +1,8 @@
-import renderTree from '../render'
+let renderTree = () => {
+    console.log('state was change')
+}
 
- let state = {
+let state = {
     messagesPage: {
         messages: [
             {
@@ -95,6 +97,10 @@ export function addUpdate(text) {
     state.profilePage.newPostText = text;
     renderTree(state);
 } 
+
+export function subscriber (observer) {
+    renderTree = observer;
+}
 
 
 export default state;
