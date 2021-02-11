@@ -48,6 +48,7 @@ import renderTree from '../render'
             {   id:1,
                 post: 'I learned English!',
                 like: 5,
+                
             },
             {
                 id:2,
@@ -64,7 +65,8 @@ import renderTree from '../render'
                 post: 'What are you doing on saturday?',
                 like:1
             }
-        ]
+        ],
+        newPostText: 'pOPO',
     },
     newsPage: {},
     musicPage: {}, 
@@ -88,6 +90,11 @@ export function addPost(message) {
     state.profilePage.posts.push(newMessage);
     renderTree(state);
 };
+
+export function addUpdate(text) {
+    state.profilePage.newPostText = text;
+    renderTree(state);
+} 
 
 
 export default state;

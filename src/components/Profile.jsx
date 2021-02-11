@@ -45,6 +45,12 @@ class Profile extends React.Component {
         newPost.current.value = '';
       };
 
+      let changeInput = () => {
+        let text = newPost.current.value;
+        this.props.addUpdate(text)
+        console.log(text)
+      }
+
         return (
           <div className='content'>
             <div>
@@ -56,7 +62,13 @@ class Profile extends React.Component {
               <h3 style={postTitleStyle} className='posts-title'>
                 MY POSTS
               </h3>
-              <textarea style={textareaStyle} ref={newPost} className='post-textarea'></textarea>
+              <textarea 
+              value={this.props.profilePage.newPostText}
+              onChange={changeInput}
+              style={textareaStyle} 
+              ref={newPost} 
+              className='post-textarea'>
+              </textarea>
               <button style={bottomStylePost} onClick={getPost} className='post-add__button-posts'>
                 Add Posts
               </button>
