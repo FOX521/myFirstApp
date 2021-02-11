@@ -65,7 +65,7 @@ let store = {
                     like:1
                 }
             ],
-            newPostText: 'pOPO',
+            newPostText: '',
         },
         newsPage: {},
         musicPage: {}, 
@@ -77,17 +77,23 @@ let store = {
     _callSubscriber() {
         console.log('state was change')
     },
-    addPost(message) {
-        let newMessage = {
-            id: this._state.profilePage.posts.length + 1,
-            post: message
+    dispatch(action) {
+        
+        switch (action.type) {
+            case 'ADD-POST':
+                let newMessage = {
+                    id: this._state.profilePage.posts.length + 1,
+                    post: action.text
+                }
+                this._state.profilePage.posts.push(newMessage);
+                this._callSubscriber(this._state);
+                this._state.profilePage.newPostText = '';
+            break;
+            case 'UPDATE-TEXT':
+                this._state.profilePage.newPostText = action.text;
+                this._callSubscriber(this._state);
+            break;
         }
-        this._state.profilePage.posts.push(newMessage);
-        this._callSubscriber(this._state);
-    },
-    addUpdate(text) {
-        this._state.profilePage.newPostText = text;
-        this._callSubscriber(this._state);
     },
     subscriber(observer) {
         this._callSubscriber = observer;
