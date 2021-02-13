@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_TEXT = 'UPDATE-TEXT';
+const CREATE_MESSAGE = 'CREATE-NEW-MESSAGE';
+const UPDATE_TEXT_MESSAGE = 'UPDATE-TEXT-MESSAGE';
+
 let store = {
     _state: {
         messagesPage: {
@@ -40,7 +45,8 @@ let store = {
                     id: 5,
                     dialog: 'Dmitryi'
                 }
-            ]
+            ],
+            newMessageBody : '',
         },
         profilePage: {
             posts: [
@@ -77,27 +83,55 @@ let store = {
     _callSubscriber() {
         console.log('state was change')
     },
-    dispatch(action) {
-        
+    dispatch(action) { 
         switch (action.type) {
-            case 'ADD-POST':
-                let newMessage = {
+            case ADD_POST:
+                let newPost = {
                     id: this._state.profilePage.posts.length + 1,
                     post: action.text
                 }
-                this._state.profilePage.posts.push(newMessage);
+                this._state.profilePage.posts.push(newPost);
                 this._callSubscriber(this._state);
                 this._state.profilePage.newPostText = '';
             break;
-            case 'UPDATE-TEXT':
+            case UPDATE_TEXT:
                 this._state.profilePage.newPostText = action.text;
                 this._callSubscriber(this._state);
             break;
-        }
+            case CREATE_MESSAGE:
+                let newMessage = {
+                    id: this._state.messagesPage.messages.length + 1,
+                    message: action.text
+                }
+                this._state.messagesPage.messages.push(newMessage);
+                this._callSubscriber(this._state);
+                this._state.messagesPage.newMessageBody = '';
+            break;
+            case UPDATE_TEXT_MESSAGE:
+                this._state.messagesPage.newMessageBody = action.text;
+                this._callSubscriber(this._state);                
+            break;
+        };
     },
     subscriber(observer) {
         this._callSubscriber = observer;
     }
+}
+
+export const createAddPost = (text) => { 
+    return {type:  ADD_POST, text: text}
+};
+
+export const createChangeInput = (text) =>{
+    return {type: UPDATE_TEXT, text: text}
+}
+
+export const createNewMessageBody = (text) => {
+    return {type: CREATE_MESSAGE, text: text}
+}
+
+export const createChangeInputMessage = (text) => {
+    return {type: UPDATE_TEXT_MESSAGE, text: text}
 }
 
 export default store;
