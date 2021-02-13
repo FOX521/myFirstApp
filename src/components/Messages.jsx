@@ -1,5 +1,6 @@
 import React from 'react';
 import MessagesItem from './MessagesItem';
+import SendMessagePage from './SendMessagePage';
 
 class Messages extends React.Component {
     constructor(props) {
@@ -7,12 +8,14 @@ class Messages extends React.Component {
     }
 
     render() {
-        let messagesItem =this.props.messages.map(el => <MessagesItem key={el.id + '1'.toString()} message={el.message} />);
+        let messagesItem =this.props.messagesPage.messages.map(el => <MessagesItem key={el.id + '1'.toString()} message={el.message} />);
+
         return(
             <section className='message-page__messages'>
             <ul className='message-page__messages-list'>
                {messagesItem}
             </ul>
+            <SendMessagePage messagesPage={this.props.messagesPage} dispatch={this.props.dispatch}/>
             </section>
         )
     }

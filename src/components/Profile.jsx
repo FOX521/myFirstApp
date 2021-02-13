@@ -1,5 +1,6 @@
 import React from 'react';
 import Posts from './Posts';
+import {createAddPost,createChangeInput} from '../data/state'
 
 class Profile extends React.Component {
   constructor(props) {
@@ -41,12 +42,12 @@ class Profile extends React.Component {
 
       let getPost = () => {
         let text = newPost.current.value;
-        this.props.dispatch({type: 'ADD-POST', text: text}); 
+        this.props.dispatch(createAddPost(text)); 
       };
       
       let changeInput = () => {
         let text = newPost.current.value;
-        this.props.dispatch({type: 'UPDATE-TEXT', text: text});
+        this.props.dispatch(createChangeInput(text));
       }
 
         return (
