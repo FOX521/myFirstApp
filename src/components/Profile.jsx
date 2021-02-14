@@ -1,6 +1,6 @@
 import React from 'react';
 import Posts from './Posts';
-import {createAddPost,createChangeInput} from '../data/state'
+import {createAddPost,createChangeInput} from '../data/reducerPostPage'
 
 class Profile extends React.Component {
   constructor(props) {
