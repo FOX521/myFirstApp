@@ -1,8 +1,9 @@
-import store from './data/state';
+import store from './data/reduxStore';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App'
 import reportWebVitals from './reportWebVitals';
+
 
 let renderTree = (state) => {
     ReactDOM.render(
@@ -16,5 +17,5 @@ let renderTree = (state) => {
 
 renderTree(store.getState());
 
-store.subscriber(renderTree);
+store.subscribe(()=>{renderTree(store.getState())});
  

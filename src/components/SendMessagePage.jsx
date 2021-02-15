@@ -1,5 +1,5 @@
 import React from 'react';
-import { createChangeInputMessage, createNewMessageBody } from '../data/state';
+import { createChangeInputMessage, createNewMessageBody } from '../data/reducerMessagePage';
 
 class SendMessagePage extends React.Component {
     render() {
@@ -19,7 +19,7 @@ class SendMessagePage extends React.Component {
         let buttonListStyle = {
             display: 'Flex',
             justifyContent: 'space-between',
-            width: '200px',
+            width: '300px',
             paddingLeft: '10px',
             listStyle: 'none'
         };
@@ -53,6 +53,12 @@ class SendMessagePage extends React.Component {
                 </li>
                 <li>
                     <button>Smile</button>
+                </li>
+                <li>
+                    <button>Audio</button>
+                </li>  
+                 <li>
+                    <button>Photo</button>
                 </li>
                 </ul>
             </section>

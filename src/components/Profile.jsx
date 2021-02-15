@@ -1,6 +1,6 @@
 import React from 'react';
 import Posts from './Posts';
-import {createAddPost,createChangeInput} from '../data/state'
+import {createAddPost,createChangeInput} from '../data/reducerPostPage'
 
 class Profile extends React.Component {
   constructor(props) {
@@ -49,6 +49,7 @@ class Profile extends React.Component {
         let text = newPost.current.value;
         this.props.dispatch(createChangeInput(text));
       }
+      debugger
 
         return (
           <div className='content'>
