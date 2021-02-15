@@ -1,7 +1,34 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_TEXT = 'UPDATE-TEXT';
 
-const reducerPostPage = (action, state) => {
+let initialState = {
+    posts: [
+        {   id:1,
+            post: 'I learned English!',
+            like: 5,
+            
+        },
+        {
+            id:2,
+            post: 'Wow! Congortulashion!',
+            like: 4,
+        },
+        {
+            id:3,
+            post: 'You sucks',
+            like: 7
+        },
+        {
+            id:4,
+            post: 'What are you doing on saturday?',
+            like:1
+        }
+    ],
+    newPostText: '',
+};
+
+const reducerPostPage = (state = initialState, action) => {
+    debugger
     switch (action.type) {
         case ADD_POST:
             let newPost = {

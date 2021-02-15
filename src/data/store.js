@@ -1,7 +1,7 @@
 import reducerMessagePage from "./reducerMessagePage";
 import reducerPostPage from "./reducerPostPage";
 
-let store = {
+let stores = {
     _state: {
         messagesPage: {
             messages: [
@@ -91,4 +91,4 @@ let store = {
     },
 }
 
-export default store;
+export default stores;
