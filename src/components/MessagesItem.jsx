@@ -6,7 +6,7 @@ class MessagesItem extends React.Component {
     }
 
     render(props) {
-        return(
+        return (
             <li className="message-page__messages--list-item">
                 <p>
                     {this.props.message}

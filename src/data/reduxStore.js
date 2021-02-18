@@ -8,8 +8,8 @@ let reduces = combineReducers(
         profilePage: reducerPostPage,
         messagesPage: reducerMessagePage,
     }
-    );
-    
+);
+
 let store = createStore(reduces);
 
- export default store;
+export default store;

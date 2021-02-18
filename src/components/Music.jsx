@@ -1,7 +1,7 @@
 import React from 'react';
 
 class Music extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
@@ -14,4 +14,4 @@ class Music extends React.Component {
     }
 }
 
-export  default Music
+export default Music
