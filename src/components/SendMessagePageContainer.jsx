@@ -3,7 +3,6 @@ import SendMessagePage from './SendMessagePage';
 import { createChangeInputMessage, createNewMessageBody } from '../data/reducerMessagePage';
 
 class SendMessagePageContainer extends React.Component {
-    debugger
     render() {
         let getChangeInput = (text) => {
             this.props.store.dispatch(createChangeInputMessage(text));

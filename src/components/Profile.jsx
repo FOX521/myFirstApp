@@ -36,20 +36,19 @@ class Profile extends React.Component {
         fontSize: '15px',
         backgroundColor: 'white'
       }
-
+      debugger
       let postsElements = this.props.profilePage.posts.map( el => <Posts post={el.post} like={el.like} />);
       let newPost = React.createRef();
 
       let getPost = () => {
         let text = newPost.current.value;
-        this.props.dispatch(createAddPost(text)); 
+        this.props.createPost(text);
       };
       
       let changeInput = () => {
         let text = newPost.current.value;
-        this.props.dispatch(createChangeInput(text));
+        this.props.changeInputValue(text);
       }
-      debugger
 
         return (
           <div className='content'>
