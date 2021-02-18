@@ -6,37 +6,37 @@ let stores = {
         messagesPage: {
             messages: [
                 {
-                    id:1,
+                    id: 1,
                     message: 'Hi'
-                 },
+                },
                 {
-                    id:2,
+                    id: 2,
                     message: 'How are you?'
                 },
                 {
-                    id:3,
+                    id: 3,
                     message: 'Nice'
                 },
                 {
-                    id:4,
+                    id: 4,
                     message: 'Cool'
                 }
             ],
             dialogs: [
                 {
-                    id:1,
+                    id: 1,
                     dialog: 'Andrey'
                 },
                 {
-                    id:2,
+                    id: 2,
                     dialog: 'Michael'
                 },
                 {
-                    id:3,
+                    id: 3,
                     dialog: 'Sacha'
                 },
                 {
-                    id:4,
+                    id: 4,
                     dialog: 'John'
                 },
                 {
@@ -44,35 +44,36 @@ let stores = {
                     dialog: 'Dmitryi'
                 }
             ],
-            newMessageBody : '',
+            newMessageBody: '',
         },
         profilePage: {
             posts: [
-                {   id:1,
+                {
+                    id: 1,
                     post: 'I learned English!',
                     like: 5,
-                    
+
                 },
                 {
-                    id:2,
+                    id: 2,
                     post: 'Wow! Congortulashion!',
                     like: 4,
                 },
                 {
-                    id:3,
+                    id: 3,
                     post: 'You sucks',
                     like: 7
                 },
                 {
-                    id:4,
+                    id: 4,
                     post: 'What are you doing on saturday?',
-                    like:1
+                    like: 1
                 }
             ],
             newPostText: '',
         },
         newsPage: {},
-        musicPage: {}, 
+        musicPage: {},
         settingPage: {},
     },
     getState() {
@@ -84,10 +85,10 @@ let stores = {
     subscriber(observer) {
         this._callSubscriber = observer;
     },
-    dispatch(action) { 
-       this._state.profilePage = reducerPostPage(action, this._state.profilePage);
-       this._state.messagesPage = reducerMessagePage(action, this._state.messagesPage);
-       this._callSubscriber(this._state);
+    dispatch(action) {
+        this._state.profilePage = reducerPostPage(action, this._state.profilePage);
+        this._state.messagesPage = reducerMessagePage(action, this._state.messagesPage);
+        this._callSubscriber(this._state);
     },
 }
 

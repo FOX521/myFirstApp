@@ -9,14 +9,14 @@ class Messages extends React.Component {
     }
 
     render() {
-        let messagesItem = this.props.store.getState().messagesPage.messages.map(el => <MessagesItem key={el.id + '1'.toString()} message={el.message}/>);
+        let messagesItem = this.props.store.getState().messagesPage.messages.map(el => <MessagesItem key={el.id + '1'.toString()} message={el.message} />);
 
-        return(
+        return (
             <section className='message-page__messages'>
-            <ul className='message-page__messages-list'>
-               {messagesItem}
-            </ul>
-            <SendMessagePageContainer store={this.props.store}/>
+                <ul className='message-page__messages-list'>
+                    {messagesItem}
+                </ul>
+                <SendMessagePageContainer store={this.props.store} />
             </section>
         )
     }

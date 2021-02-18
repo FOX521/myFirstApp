@@ -4,9 +4,9 @@ import SettingPageList from './SettingPageList'
 class SettingPage extends React.Component {
     render() {
 
-        return(
+        return (
             <div className='setting-page'>
-                <SettingPageList/>
+                <SettingPageList />
             </div>
         )
     }

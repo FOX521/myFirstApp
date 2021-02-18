@@ -3,24 +3,24 @@ import React from 'react';
 class SettingPageList extends React.Component {
     render() {
 
-        return(
+        return (
             <ul className='setting-page__list'>
                 <li>
                     <label>
-                    Уведомления и звук <input type='checkbox'></input> ON.
+                        Уведомления и звук <input type='checkbox'></input> ON.
                     </label>
                 </li>
                 <li>
-                    Черный список 
+                    Черный список
                 </li>
                 <li>
-                    Язык 
-                </li>
-                <li>    
-                    Настройки профиля   
+                    Язык
                 </li>
                 <li>
-                    Приватность  
+                    Настройки профиля
+                </li>
+                <li>
+                    Приватность
                 </li>
                 <li>
                     Безопасность

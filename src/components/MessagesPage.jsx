@@ -8,11 +8,11 @@ class MessagesPage extends React.Component {
         super(props)
     };
 
-    render() {        
+    render() {
         return (
             <section className='message-page'>
-                <Dialogs dialogs={this.props.store.getState().messagesPage.dialogs}/>
-                <Messages  store={this.props.store}/>
+                <Dialogs dialogs={this.props.store.getState().messagesPage.dialogs} />
+                <Messages store={this.props.store} />
             </section>
         )
     }

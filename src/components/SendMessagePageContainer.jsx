@@ -10,11 +10,11 @@ class SendMessagePageContainer extends React.Component {
         let OnSendMessage = (text) => {
             this.props.store.dispatch(createNewMessageBody(text))
         };
-        
+
         return (
-           <SendMessagePage  messagesPage={this.props.store.getState().messagesPage}  getChangeInput={getChangeInput} OnSendMessage={OnSendMessage}/>
+            <SendMessagePage messagesPage={this.props.store.getState().messagesPage} getChangeInput={getChangeInput} OnSendMessage={OnSendMessage} />
         )
     }
 }
 
-export  default SendMessagePageContainer;
+export default SendMessagePageContainer;
