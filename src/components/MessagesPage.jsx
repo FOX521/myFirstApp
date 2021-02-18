@@ -12,7 +12,7 @@ class MessagesPage extends React.Component {
         return (
             <section className='message-page'>
                 <Dialogs dialogs={this.props.messagesPage.dialogs}/>
-                <Messages messagesPage={this.props.messagesPage} dispatch={this.props.dispatch}/>
+                <Messages messagesPage={this.props.messagesPage} dispatch={this.props.dispatch} store={this.props.store}/>
             </section>
         )
     }

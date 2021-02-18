@@ -1,5 +1,4 @@
 import React from 'react';
-import { createChangeInputMessage, createNewMessageBody } from '../data/reducerMessagePage';
 
 class SendMessagePage extends React.Component {
     render() {
@@ -26,21 +25,21 @@ class SendMessagePage extends React.Component {
 
         let newMessage = React.createRef();
 
-        let getChangeInput = (evt) => {
+        let changeInput = (evt) => {
             let text = evt.target.value;
-            this.props.dispatch(createChangeInputMessage(text));
-        };
+            this.props.getChangeInput(text);
+        }
 
         let sendMessage = () => {
             let text = newMessage.current.value;
-            this.props.dispatch(createNewMessageBody(text))
-        };
+            this.props.OnSendMessage(text)
+        }
 
         return (
             <section style={messagePageStyle}>
                 <textarea  style={placeholderStyle}
                            ref={newMessage}
-                           onChange={getChangeInput}    
+                           onChange={changeInput}    
                            value={this.props.messagesPage.newMessageBody}
                            placeholder='Write your message'>
                            </textarea>
