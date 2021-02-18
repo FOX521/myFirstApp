@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 
 
 let renderTree = (state) => {
-  debugger
     ReactDOM.render(
       <React.StrictMode>
         <App state={state} dispatch={store.dispatch.bind(store)} store={store}/> 

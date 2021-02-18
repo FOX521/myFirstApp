@@ -9,7 +9,7 @@ class Messages extends React.Component {
     }
 
     render() {
-        let messagesItem =this.props.messagesPage.messages.map(el => <MessagesItem key={el.id + '1'.toString()} message={el.message}/>);
+        let messagesItem = this.props.store.getState().messagesPage.messages.map(el => <MessagesItem key={el.id + '1'.toString()} message={el.message}/>);
 
         return(
             <section className='message-page__messages'>
@@ -17,7 +17,6 @@ class Messages extends React.Component {
                {messagesItem}
             </ul>
             <SendMessagePageContainer store={this.props.store}/>
-            {/* <SendMessagePage messagesPage={this.props.messagesPage} dispatch={this.props.dispatch}/> */}
             </section>
         )
     }

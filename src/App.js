@@ -9,7 +9,6 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import ProfileContainer from './components/ProfileContainer';
 
 function App(props) {
-  debugger
   return (
     <BrowserRouter>
     <div className="app-wrapper">
@@ -17,7 +16,7 @@ function App(props) {
       <Navbar />
       <div className='content'>
       <Route path='/profile' render={()=> <ProfileContainer store={props.store}/>} />
-      <Route path='/messages' render={() => <MessagesPage messagesPage={props.store.getState().messagesPage} dispatch={props.dispatch} store={props.store} />} />
+      <Route path='/messages' render={() => <MessagesPage  store={props.store} />} />
       <Route path='/news' component={News} />
       <Route path='/settings' component={SettingPage} />
       <Route path='/music' component={Music} />

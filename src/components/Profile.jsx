@@ -36,7 +36,7 @@ class Profile extends React.Component {
         fontSize: '15px',
         backgroundColor: 'white'
       }
-      debugger
+
       let postsElements = this.props.profilePage.posts.map( el => <Posts post={el.post} like={el.like} />);
       let newPost = React.createRef();
 

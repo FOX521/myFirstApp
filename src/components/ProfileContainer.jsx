@@ -7,8 +7,6 @@ class ProfileContainer extends React.Component {
     super(props);
   }
     render () {
-      debugger
-
       let createPost = (text) => {
         this.props.store.dispatch(createAddPost(text)); 
       };
