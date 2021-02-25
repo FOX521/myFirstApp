@@ -29,20 +29,25 @@ let initialState = {
 };
 
 const reducerPostPage = (state = initialState, action) => {
+    let stateCopy = {
+        ...state,
+        messages: [...state.posts]
+    }
+
     switch (action.type) {
         case ADD_POST:
             let newPost = {
                 id: state.posts.length + 1,
                 post: action.text
             }
-            state.posts.push(newPost);
-            state.newPostText = '';
+            stateCopy.posts.push(newPost);
+            stateCopy.newPostText = '';
             break;
         case UPDATE_TEXT:
-            state.newPostText = action.text;
+            stateCopy.newPostText = action.text;
             break;
     };
-    return state;
+    return stateCopy;
 };
 
 export const createAddPost = (text) => {

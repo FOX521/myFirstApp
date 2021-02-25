@@ -37,7 +37,7 @@ class Profile extends React.Component {
       backgroundColor: 'white'
     }
 
-    let postsElements = this.props.profilePage.posts.map(el => <Posts post={el.post} like={el.like} />);
+    let postsElements = this.props.profilePage.posts.map(el => <Posts post={el.post} like={el.like} key={el.id + '1'.toString()}/>);
     let newPost = React.createRef();
 
     let getPost = () => {

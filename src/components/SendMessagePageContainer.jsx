@@ -3,20 +3,20 @@ import SendMessagePage from './SendMessagePage';
 import { createChangeInputMessage, createNewMessageBody } from '../data/reducerMessagePage';
 import { connect } from 'react-redux';
 
-class SendMessagePageContainer extends React.Component {
-    render() {
-        let getChangeInput = (text) => {
-            this.props.store.dispatch(createChangeInputMessage(text));
-        };
-        let OnSendMessage = (text) => {
-            this.props.store.dispatch(createNewMessageBody(text))
-        };
+// class SendMessagePageContainer extends React.Component {
+//     render() {
+//         let getChangeInput = (text) => {
+//             this.props.store.dispatch(createChangeInputMessage(text));
+//         };
+//         let OnSendMessage = (text) => {
+//             this.props.store.dispatch(createNewMessageBody(text))
+//         };
 
-        return (
-            <SendMessagePage messagesPage={this.props.store.getState().messagesPage} getChangeInput={getChangeInput} OnSendMessage={OnSendMessage} />
-        )
-    }
-}
+//         return (
+//             <SendMessagePage messagesPage={this.props.store.getState().messagesPage} getChangeInput={getChangeInput} OnSendMessage={OnSendMessage} />
+//         )
+//     }
+// }
 
 let mapStateToProps = (state) => {
     return {
@@ -35,6 +35,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-let SendMessagePageContainerSuper = connect(mapStateToProps, mapDispatchToProps)(SendMessagePage)
+let SendMessagePageContainer = connect(mapStateToProps, mapDispatchToProps)(SendMessagePage)
 
 export default SendMessagePageContainer;

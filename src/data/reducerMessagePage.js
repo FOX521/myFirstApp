@@ -46,20 +46,26 @@ let initialState = {
 };
 
 const reducerMessagePage = (state = initialState, action) => {
+
+    let stateCopy = {
+        ...state,
+        messages: [...state.messages]
+    };
+    
     switch (action.type) {
         case CREATE_MESSAGE:
             let newMessage = {
                 id: state.messages.length + 1,
                 message: action.text
             }
-            state.messages.push(newMessage);
-            state.newMessageBody = '';
+            stateCopy.messages.push(newMessage);
+            stateCopy.newMessageBody = '';
             break;
         case UPDATE_TEXT_MESSAGE:
-            state.newMessageBody = action.text;
+            stateCopy.newMessageBody = action.text;
             break;
     };
-    return state;
+    return stateCopy;
 };
 
 export const createNewMessageBody = (text) => {
