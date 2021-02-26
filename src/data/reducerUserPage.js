@@ -4,48 +4,18 @@ const SET_USERS = 'SET_USERS';
 
 let initialState = {
     users: [
-        {
-            id: 1,
-            follow: false,
-            fullName: 'Dmitriy',
-            status: 'I\'m a boss',
-            location: {
-                city: 'Moscow',
-                country: 'Russia'
-            }
-        },
-        {
-            id: 2,
-            follow: false,
-            fullName: 'Alex',
-            status: 'Just do it!',
-            location: {
-                city: 'Los-Angeles',
-                country: 'USA'
-            }
-        },
-        {
-            id: 3,
-            follow: true,
-            fullName: 'Sara',
-            status: 'You\'re next',
-            location: {
-                city: 'Munchen',
-                country: 'Germany'
-            }
-        }
     ]
 };
 
-
 const reducerUserPage = (state = initialState, action) => {
+    debugger
     switch (action.type) {
         case FOLLOW:
             return {
                 ...state,
                 users: state.users.map((u) => {
                     if (u.id === action.userId) {
-                        return { ...u, follow: true }
+                        return { ...u, followed: true }
                     }
                     return u
                 })
@@ -55,7 +25,7 @@ const reducerUserPage = (state = initialState, action) => {
                 ...state,
                 users: state.users.map((u) => {
                     if (u.id === action.userId) {
-                        return { ...u, follow: false }
+                        return { ...u, followed: false }
                     }
                     return u
                 })
@@ -68,8 +38,7 @@ const reducerUserPage = (state = initialState, action) => {
             break;
     }
     return state
-
-}
+};
 
 export const followActionCreater = (userId) => {
     return {
@@ -83,13 +52,13 @@ export const unFollowActionCreater = (userId) => {
         type: UNFOLLOW,
         userId
     }
-}
+};
 
 export const setUsersActionCreater = (users) => {
     return {
         type: SET_USERS,
         users
     }
-}
+};
 
 export default reducerUserPage;
