@@ -1,10 +1,14 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_USERS_COUNTS = 'SET_USERS_COUNTS'
 
 let initialState = {
-    users: [
-    ]
+    users: [],
+    pageSize: 20,
+    totalUsersCount: 0,
+    currentPage: 1
 };
 
 const reducerUserPage = (state = initialState, action) => {
@@ -30,12 +34,21 @@ const reducerUserPage = (state = initialState, action) => {
                     return u
                 })
             };
+        case SET_CURRENT_PAGE:
+            return {
+                ...state,
+                currentPage: action.currentPage
+            };
         case SET_USERS:
             return {
                 ...state,
-                users: [...state.users, ...action.users]
-            }
-            break;
+                users: [...action.users]
+            };
+        case SET_USERS_COUNTS: 
+        return {
+            ...state, 
+            totalUsersCount: action.totalUsersCount
+        }
     }
     return state
 };
@@ -60,5 +73,19 @@ export const setUsersActionCreater = (users) => {
         users
     }
 };
+
+export const setCurrentPageActionCreater = (currentPage) => {
+    return {
+        type: SET_CURRENT_PAGE,
+        currentPage
+    }
+};
+
+export const setCountUsersActionCreater = (totalUsersCount) => {
+    return {
+        type: SET_USERS_COUNTS,
+        totalUsersCount
+    }
+}
 
 export default reducerUserPage;
