@@ -17,6 +17,9 @@ class Navbar extends React.Component {
             <NavLink to='/messages'>Messages</NavLink>
           </li>
           <li>
+            <NavLink to='/users'>Users</NavLink>
+          </li>
+          <li>
             <NavLink to='/news'>News</NavLink>
           </li>
           <li>
