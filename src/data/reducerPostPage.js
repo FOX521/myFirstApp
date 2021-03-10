@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_TEXT = 'UPDATE-TEXT';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {
     posts: [
@@ -26,6 +27,7 @@ let initialState = {
         }
     ],
     newPostText: '',
+    profile: null
 };
 
 const reducerPostPage = (state = initialState, action) => {
@@ -46,6 +48,9 @@ const reducerPostPage = (state = initialState, action) => {
         case UPDATE_TEXT:
             stateCopy.newPostText = action.text;
             break;
+        case SET_USER_PROFILE:
+            return {...state, profile: action.profile}
+            break;
     };
     return stateCopy;
 };
@@ -57,5 +62,9 @@ export const createAddPost = (text) => {
 export const createChangeInput = (text) => {
     return { type: UPDATE_TEXT, text: text }
 }
+
+export const setUserProfileAC = (profile) => {
+    return {type: SET_USER_PROFILE, profile}
+} 
 
 export default reducerPostPage;

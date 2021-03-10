@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { followActionCreater, unFollowActionCreater, setUsersActionCreater, setCurrentPageActionCreater, setCountUsersActionCreater, toggleFetchingActionCreater} from '../data/reducerUserPage';
 import axios from 'axios'
 import UsersPage from './UsersPage';
-import preloader from '../assets/preloader.gif'
-
+import Preloader from './Preloader';
 class UserPageAPI extends React.Component {
     constructor(props) {
         super(props)
@@ -16,8 +15,7 @@ class UserPageAPI extends React.Component {
         .then(response => {
             this.props.toggleFetching(false)
             this.props.setUsers(response.data.items);
-            this.props.setTotalUsersCount(response.data.totalCount);
-            
+            this.props.setTotalUsersCount(response.data.totalCount);  
         })
     };
 
@@ -34,7 +32,7 @@ class UserPageAPI extends React.Component {
     render() {
         return (
             <>
-            {this.props.isFetching ? <img src={preloader} /> : null }
+            {this.props.isFetching ? <Preloader/> : null }
         <UsersPage onPageChange={this.onPageChange} 
                 totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
