@@ -16,7 +16,7 @@ function App(props) {
         <Header />
         <Navbar />
         <div className='content'>
-          <Route path='/profile' render={() => <ProfileContainer store={props.store} />} />
+          <Route path='/profile/:userid?' render={() => <ProfileContainer store={props.store} />} />
           <Route path='/messages' render={() => <MessagesPage store={props.store} />} />
           <Route path='/users' render={() => <UserPageContainer store={props.store} />} />
           <Route path='/news' component={News} />

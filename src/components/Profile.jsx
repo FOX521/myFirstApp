@@ -1,6 +1,7 @@
 import React from 'react';
 import Posts from './Posts';
 import { createAddPost, createChangeInput } from '../data/reducerPostPage'
+import Preloader from './Preloader';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -49,6 +50,9 @@ class Profile extends React.Component {
       let text = newPost.current.value;
       this.props.changeInputValue(text);
     }
+    if(!this.props.profilePage.profile) {
+      return <Preloader/>
+    }
 
     return (
       <div className='content'>
@@ -56,6 +60,7 @@ class Profile extends React.Component {
           <img src='https://russiantouramerica.com/wp-content/uploads/2018/08/Nju-Jork-foto-free-1000x700.jpg' width='100%' height='100%'></img>
         </div>
         <div>
+          <img src={this.props.profilePage.profile.photos.large}/>
         </div>
         <div className='posts'>
           <h3 style={postTitleStyle} className='posts-title'>
