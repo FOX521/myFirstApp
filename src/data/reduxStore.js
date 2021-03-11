@@ -1,4 +1,5 @@
 import { combineReducers, createStore } from "redux";
+import authReducer from "./reducerAuth";
 import reducerMessagePage from "./reducerMessagePage";
 import reducerPostPage from "./reducerPostPage";
 import reducerUserPage from "./reducerUserPage";
@@ -8,7 +9,8 @@ let reduces = combineReducers(
     {
         profilePage: reducerPostPage,
         messagesPage: reducerMessagePage,
-        userPage: reducerUserPage
+        userPage: reducerUserPage,
+        auth: authReducer 
     }
 );
 let store = createStore(reduces);

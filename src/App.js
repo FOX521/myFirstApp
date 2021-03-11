@@ -8,12 +8,13 @@ import SettingPage from './components/SettingPage';
 import { BrowserRouter, Route } from 'react-router-dom';
 import ProfileContainer from './components/ProfileContainer';
 import UserPageContainer from './components/UserPageContainer';
+import HeaderContainer from './components/HeaderContainer';
 
 function App(props) {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
-        <Header />
+        <HeaderContainer />
         <Navbar />
         <div className='content'>
           <Route path='/profile/:userid?' render={() => <ProfileContainer store={props.store} />} />
