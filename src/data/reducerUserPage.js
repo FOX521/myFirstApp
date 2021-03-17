@@ -4,13 +4,15 @@ const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_USERS_COUNTS = 'SET_USERS_COUNTS';
 const TOGGLE_FETCHING = 'TOGGLE_FETCHING';
+const TOGGLE_DISABLED = 'TOGGLE_DISABLED';
 
 let initialState = {
     users: [],
     pageSize: 20,
     totalUsersCount: 0,
     currentPage: 1,
-    isFetching: true
+    isFetching: true,
+    isDisabled: []
 };
 
 const reducerUserPage = (state = initialState, action) => {
@@ -54,6 +56,13 @@ const reducerUserPage = (state = initialState, action) => {
         return {
             ...state, 
             isFetching: action.isFetching
+        };
+        case TOGGLE_DISABLED: 
+        return {
+            ...state, 
+            isDisabled: action.isFetching
+            ? [...state.isDisabled, action.userID]
+            : state.isDisabled.filter(id => id != action.userID)
         }
     }
     return state
@@ -101,6 +110,13 @@ export const toggleFetchingActionCreater = (isFetching) => {
     }
 }
 
+export const toggleDisabledActionCreater = (isFetching, userID) => {
+    return {
+        type: TOGGLE_DISABLED,
+        isFetching,
+        userID
+    }
+}
 
 
 export default reducerUserPage;

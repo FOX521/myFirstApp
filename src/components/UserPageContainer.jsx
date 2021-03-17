@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { followActionCreater, unFollowActionCreater, setUsersActionCreater, setCurrentPageActionCreater, setCountUsersActionCreater, toggleFetchingActionCreater} from '../data/reducerUserPage';
+import { followActionCreater, unFollowActionCreater, setUsersActionCreater, setCurrentPageActionCreater, setCountUsersActionCreater, toggleFetchingActionCreater, toggleDisabledActionCreater } from '../data/reducerUserPage';
 import axios from 'axios'
 import UsersPage from './UsersPage';
 import Preloader from './Preloader';
+import getUsers from '../API/api';
 class UserPageAPI extends React.Component {
     constructor(props) {
         super(props)
@@ -11,47 +12,48 @@ class UserPageAPI extends React.Component {
 
     componentDidMount() {
         this.props.toggleFetching(true);
-       axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-        .then(response => {
+        getUsers(this.props.currentPage, this.props.pageSize).then(data => {
             this.props.toggleFetching(false)
-            this.props.setUsers(response.data.items);
-            this.props.setTotalUsersCount(response.data.totalCount);  
+            this.props.setUsers(data.items);
+            this.props.setTotalUsersCount(data.totalCount);
         })
     };
 
     onPageChange = (pageNumber) => {
         this.props.setCurrentPage(pageNumber)
         this.props.toggleFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-        .then(response => {
+        getUsers(pageNumber, this.props.pageSize).then(data => {
             this.props.toggleFetching(false)
-            this.props.setUsers(response.data.items);
-        })
-    }
+            this.props.setUsers(data.items);
+        });
+    };
 
     render() {
         return (
             <>
-            {this.props.isFetching ? <Preloader/> : null }
-        <UsersPage onPageChange={this.onPageChange} 
-                totalUsersCount={this.props.totalUsersCount}
-                pageSize={this.props.pageSize}
-                currentPage ={this.props.currentPage} 
-                users={this.props.users}
-                follow={this.props.follow}
-                unFollow={this.props.unFollow} />
+                {this.props.isFetching ? <Preloader /> : null}
+                <UsersPage onPageChange={this.onPageChange}
+                    totalUsersCount={this.props.totalUsersCount}
+                    pageSize={this.props.pageSize}
+                    currentPage={this.props.currentPage}
+                    users={this.props.users}
+                    follow={this.props.follow}
+                    unFollow={this.props.unFollow}
+                    isDisabled={this.props.isDisabled}
+                    toggleDisabled={this.props.toggleDisabled} />
             </>
         )
     };
 };
 
 let mapStateToProps = (state) => {
-    return  {
+    return {
         users: state.userPage.users,
         pageSize: state.userPage.pageSize,
         totalUsersCount: state.userPage.totalUsersCount,
         currentPage: state.userPage.currentPage,
-        isFetching: state.userPage.isFetching
+        isFetching: state.userPage.isFetching,
+        isDisabled: state.userPage.isDisabled
     }
 };
 
@@ -74,10 +76,13 @@ let mapDispatchToProps = (dispatch) => {
         },
         toggleFetching: (isFetching) => {
             dispatch(toggleFetchingActionCreater(isFetching))
+        },
+        toggleDisabled: (isDisabled, userId) => {
+            dispatch(toggleDisabledActionCreater(isDisabled, userId))
         }
     }
 };
 
-let UserPageContainer = connect(mapStateToProps,mapDispatchToProps)(UserPageAPI)
+let UserPageContainer = connect(mapStateToProps, mapDispatchToProps)(UserPageAPI)
 
 export default UserPageContainer;
